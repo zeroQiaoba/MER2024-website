@@ -106,7 +106,7 @@
                 <div class="intro-heading-large">Recognition</div>
                 <br><br> 
                 <br><br>              
-                <div class="intro-heading"> Noise Robustness, Semi-Supervised Learning, and Open-set Recognition</div>
+                <div class="intro-heading"> Semi-Supervised Learning, Noise Robustness, and Open-Vocabulary Emotion Recognition</div>
                 <br><br>
             </div>
         </div>
@@ -134,7 +134,7 @@
                         modality robustness of affect recognition, low-resource affect recognition, human affect synthesis in multimedia, 
                         privacy in affective computing, and applications in health, education, entertainment, etc., 
                         to further discuss recent research and future directions for affective computing in multimedia. 
-                        At the same time, we intend to provide a communication platform for all participants of MER24, 
+                        At the same time, we intend to provide a communication platform for all participants of MER24@IJCAI, 
                         to systematically evaluate the robustness of emotion recognition systems and promote applications of this technology in practice.</br>
                     </p>
 
@@ -177,37 +177,49 @@
             <div class="col-md-12">
                 <p class="large text-muted">
                     Compared with previous MER23, in this year, we enlarge the dataset size by including more labeled and unlabeled samples. 
-                    Meanwhile, besides MER-NOISE and MER-SEMI, we introduce a new track called MER-Openset.
+                    Meanwhile, besides MER-SEMI and MER-NOISE, we introduce a new track called MER-OV.
                 </p>
 
                 <br>
+				<p class="large text-muted">
+                    <b>Track 1. MER-SEMI.</b> It is difficult to collect large amounts of samples with emotion labels. 
+                    To address the problem of data sparseness, researchers revolve around unsupervised or semi-supervised learning and use unlabeled data during training. 
+                    Furthermore, MERBench [1] points out the necessity of using unlabeled data from the same domain as labeled data. 
+                    Therefore, we provide a large number of human-centric unlabeled videos in MER2024 and encourage participants 
+                    to explore more effective unsupervised or semi-supervised learning strategies for better performance.
+                </p>
+				
                 <p class="large text-muted">
-                    <b>Track 1. MER-Noise.</b> This track provides corrupted samples to evaluate modality robustness. 
-                    Specifically, we blur video frames and add noise to the audio in this track. 
-                    We encourage participants to exploit data augmentation [1] or other advanced techniques [2] to improve the noise robustness.
+                    <b>Track 2. MER-Noise.</b> Noise generally exists in the video. 
+                    It is hard to guarantee that every video is free of any audio noise and each frame is in high-resolution. 
+                    To improve noise robustness, researchers have carried out a series of works on emotion recognition under noise conditions. 
+                    However, there lacks a benchmark dataset to fairly compare different strategies. 
+                    Therefore, we organize a track around noise robustness. 
+                    Although there are many types of noise, we consider the two most common ones: audio additive noise and image blur noise. 
+                    We encourage participants to exploit data augmentation [2] or other techniques [3] to improve the noise robustness of emotion recognition systems.
                 </p>
 
                 <p class="large text-muted">
-                    <b>Track 2. MER-SEMI.</b> Previously, MERBench [3] proved that pre-training on large amounts of unlabeled data 
-                    (especially pre-training on domain-matching data) was effective than other techniques for emotion recognition. 
-                    Therefore, this track provides a large number of unlabeled samples belonging to the same domain as the labeled data. 
-                    We encourage participants to exploit semi-supervised learning to improve the performance of emotion recognition.
-                </p>
-
-                <p class="large text-muted">
-                    <b>Track 3. MER-Openset.</b> The first two tracks fix the label space. 
-                    Differently, this track focuses on open-set emotion recognition. 
-                    We encourage participants to leverage the recent MLLMs to generate fine-grained emotion labels.
-                    Our initial attemp to this task can be found in EMER [4].
+                    <b>Track 3. MER-OV.</b> Emotions are subjective and ambiguous. To increase annotation consistency, 
+                    existing datasets typically limit the label space to a few discrete labels, employ multiple annotators, and use majority voting to select the most likely label. 
+                    However, this process may cause some correct but non-candidate or non-majority labels to be ignored, resulting in inaccurate annotations. 
+                    To this end, we introduce a new track on open-vocabulary emotion recognition. 
+                    We encourage participants to generate any number of labels in any category, trying to describe the emotional state accurately.
                 </p>
 
                 <br>
+                <head>
+                    <title>MathJax Example</title>
+                    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+                    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+                </head>
                 <p class="large text-muted">
-                    <b>Evaluation Metrics.</b> For Track 1 and Track 2, the goal is to predict discrete emotions. 
-                    We choose the weighted average f1-score as the evaluation metric. 
-                    The goal of Track 3 is to predict open-set emotion labels. 
-                    For this track, we calculate the accuracy and recall between annotated and predicted open-set labels, 
-                    and use the average of these two metrics for the final ranking. More details can be found in <a href="https://arxiv.org/pdf/2306.15401.pdf">EMER</a>.
+                    <b>Evaluation Metrics.</b> For MER-SEMI and MER-NOISE, 
+                    we choose two widely used metrics in emotion recognition: accuracy and weighted average F-score (WAF). 
+                    Considering the inherent class imbalance, we choose WAF as the final ranking.
+                    For MER-OV, we draw on our previous work [4], in which we extend traditional classification metrics (i.e., accuracy and recall) and define set-level accuracy and recall.
+                    More details can be found in our baseline paper.
+    
                 </p>
                 
                 <br>
@@ -226,25 +238,25 @@
                 
                 <br>
                 <p class="large text-muted">
-                    <b>Result submission.</b> We provide a large amount of unlabeled samples. For Track 1 and Track 2, participants should submit discrete prediction for each unlabeled samples.
-                    For Track 3, participants should submit open-set emotion prediction for each unlabeled samples. During evaluation, we only evaluate a small subset of samples.
+                    <b>Result submission.</b> For MER-SEMI and MER-NOISE, each team should submit the most likely discrete label among the 6 candidate labels 
+                    (i.e., <i> worried, happy, neutral, angry, surprise, and sad </i>). 
+                    For MER-OV, each team can submit any number of labels in any category. 
+                    For all tracks, participants should predict results for all 115,595 unlabeled data, although we only evaluate a small subset. 
                     To focus on generalization performance rather than optimizing for a specific subset, 
                     we do not provide information about which samples belong to the test subset.
-                    
-                    
                 </p>
+
                 <p style="color: rgb(135,206,235)">Sumbission link for Track 1: Coming soon</p>
                 <p style="color: rgb(135,206,235)">Sumbission link for Track 2: Coming soon</p>
                 <p style="color: rgb(135,206,235)">Sumbission link for Track 3: Coming soon</p>
                 
                 <br>
                 <p class="large text-muted">
-                    <b>Paper submission.</b> All teams are invited to be submitted via the paper submission system 
-                    for review before final acceptance for presentation at the MRAC24 Workshop@ACM Multimedia. 
-                    Top-5 teams from each track <b>MUST</b> submit a paper and top-3 winning teams from each track will be awarded with a certificate..
-
+                    <b>Paper submission.</b> All participants are encouraged to submit a paper describing their solution to the MRAC24 Workshop@ACM Multimedia.
+                    Top-5 teams in each track <b>MUST</b> submit a paper.
+                    Top-3 winning teams in each track will be awarded with a certificate.
                 </p>
-                <p style="color: rgb(135,206,235)">Sumbission link for paper: Coming soon</p>
+                <p style="color: rgb(135,206,235)">Paper sumbission link: Coming soon</p>
                 
 
                 <br>
@@ -261,27 +273,28 @@
                 
                 <br>
                 <p class="text-muted"> 
-                    [1] Devamanyu Hazarika, Yingting Li,
+					[1] Zheng Lian, Licai Sun, Yong Ren, Hao
+                    Gu, Haiyang Sun, Lan Chen, Bin Liu, and Jianhua
+                    Tao. 
+                    <a href="https://arxiv.org/pdf/2401.03429.pdf">Merbench: A unified evaluation benchmark for multimodal emotion recognition. </a>
+                    arXiv preprint
+                    arXiv:2401.03429, 2024.
+					<br>
+                    [2] Devamanyu Hazarika, Yingting Li,
                     Bo Cheng, Shuai Zhao, Roger Zimmermann, and Soujanya Poria. 
                     <a href="https://aclanthology.org/2022.naacl-main.50.pdf">Analyzing modality robustness in multimodal sentiment analysis.</a>
                      In Proceedings of the North American
                     Chapter of the Association for Computational Linguistics:
                     Human Language Technologies, pages 685–696, 2022.
                     <br>
-                    [2] Zheng Lian, Lan Chen, Licai Sun, Bin
+                    [3] Zheng Lian, Lan Chen, Licai Sun, Bin
                     Liu, and Jianhua Tao. 
                     <a href="https://ieeexplore.ieee.org/abstract/document/10008078">Gcnet: Graph completion network for incomplete multimodal learning in conversation.</a>
                     IEEE Transactions on Pattern Analysis and Machine Intelligence, 45(07):8419–8432, 2023.
-                    <br>
-                    [3] Zheng Lian, Licai Sun, Yong Ren, Hao
-                    Gu, Haiyang Sun, Lan Chen, Bin Liu, and Jianhua
-                    Tao. 
-                    <a href="https://arxiv.org/pdf/2401.03429.pdf">Merbench: A unified evaluation benchmark for multimodal emotion recognition. </a>
-                    arXiv preprint
-                    arXiv:2401.03429, 2024.
+                    
                     <br>
                     [4] Zheng Lian, Licai Sun, Haiyang Sun, Hao Gu, Zhuofan Wen, Siyuan Zhang, Shun Chen, Mingyu Xu, Ke Xu, Lan Chen, Jiangyan Yi, Bin Liu, and Jianhua Tao. 
-                    <a href="https://arxiv.org/pdf/2306.15401.pdf">Explainable Multimodal Emotion Reasoning: a Promising Way to Open-set Emotion Recognition.</a>
+                    <a href="https://arxiv.org/abs/2306.15401">Explainable Multimodal Emotion Reasoning.</a>
                     arXiv preprint arXiv:2306.15401, 2023.
                 </p>
             </div>
@@ -302,7 +315,7 @@
             <div class="col-md-12" >
 
                 <p class="large text-muted ">
-                    <br><br>Besides papers for MER24 Challenge, we also invite submissions on any aspect of multimodal emotion recognition and synthesis in deep learning. 
+                    <br><br>Besides papers for the MER24 Challenge, we also invite submissions on any aspect of multimodal emotion recognition and synthesis in deep learning. 
                     <b>Topics include but not limited to:</b> </br>
                 </p>
 
@@ -323,23 +336,37 @@
                 </ul>
 
                 <p class="large text-muted ">
-                    <b>Format:</b> Coming soon
+                    <br>
+                    <b>Format:</b> Submitted papers (.pdf format) must use the ACM Article Template: <a href="https://2024.acmmm.org/files/ACM-MM24-paper-templates.zip">paper template</a>. 
+                    Please use the template in traditional double-column format to prepare your submissions. 
+                    For example, word users may use <b>Word Interim Template</b>, and latex users may use <b>sample-sigconf-authordraft</b> template. 
+                    When using sample-sigconf-authordraft template, please comment all the author information for submission and review of manuscript, 
+                    instead of changing the documentclass command to <b>'\documentclass[manuscript, screen, review]{acmart}'</b> as told by instructions. 
+                    Please ensure that you submit your papers subscribing to this format for full consideration during the review process.
 
                     <br>
-
-                    <b>Length:</b> Coming soon
-
                     <br>
 
-                    <b>Peer Review and publication in ACM Digital Library:</b> Coming soon
+                    <b>Length:</b> Submitted papers may consist of 6 to 8 pages. Up to two additional pages may be added for references. 
+                    The reference pages must only contain references. Overlength papers will be rejected without review.
+                    We do not allow appendix that follow right after the main paper in the main submission file.
 
+                    <br>
+                    <br>
+
+                    <b>Peer Review and publication in ACM Digital Library:</b> 
+                    Paper submissions must conform with the “double-blind” review policy. 
+                    All papers will be peer-reviewed by experts in the field, they will receive at least two reviews. 
+                    Acceptance will be based on relevance to the workshop, scientific novelty, and technical quality.
+                    The workshop papers will be published in the ACM Digital Library.
+
+                    <br>
                     <br>
 
                 </p>
 
                 <p class="large text-muted">
-                    Contact email: <a href="merchallenge.contact@gmail.com">merchallenge.contact@gmail.com</a>
-
+                    <b>Contact email:</b>  merchallenge.contact@gmail.com
                 </p>
             </div>
         </div>
@@ -369,23 +396,23 @@
                     </p>
 
                     <p class="large text-muted">
-                        <span> June 20, 2024:</span> <b>Results submission start</b> 
+                        <span> June 30, 2024:</span> <b>Results submission start</b> 
                     </p>
 
                     <p class="large text-muted">
-                        <span> July 1, 2024:</span> <b>Results submission deadline</b>
+                        <span> July 10, 2024:</span> <b>Results submission deadline</b>
                     </p>
 
                     <p class="large text-muted">
-                        <span> July 12, 2024:</span> <b>Paper submission deadline</b>
+                        <span> July 19, 2024:</span> <b>Paper submission deadline</b>
                     </p>
 
                     <p class="large text-muted">
-                        <span> July 24, 2024:</span> <b>Paper acceptance notification</b>
+                        <span> August 5, 2024:</span> <b>Paper acceptance notification</b>
                     </p>
 
                     <p class="large text-muted">
-                        <span> August 6, 2024:</span> <b>Deadline for camera-ready papers</b>
+                        <span> August 18, 2024:</span> <b>Deadline for camera-ready papers</b>
                     </p>
 
                     <br>
@@ -426,7 +453,7 @@
 
             <div class="row">
                 <div class="col-lg-12 text-center" style="padding-bottom: 20px;">
-                    <h2 class="section-heading">General Chairs</h2>
+                    <h2 class="section-heading">ORGANISERS</h2>
                 </div>
             </div>
 
@@ -450,7 +477,7 @@
                     <div class="col-sm-2">
                         &nbsp;
                     </div>
-
+					
                     <div class="col-sm-2">
                         <div class="team-member">
                             <img src="./img/lianzheng.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
@@ -458,6 +485,10 @@
                             <p class="text-muted"> Institute of Automation, Chinese Academy of Sciences (CASIA)</p>
                         </div>
                     </div>
+
+					
+					
+                    
 
                     <div class="col-sm-2">
                         &nbsp;
@@ -529,32 +560,33 @@
                 </div>
 
                 
-                <div class="col-sm-2">
+				<div class="col-sm-2">
                     <div class="team-member">
                         <img src="./img/liubin.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
                         <h4><a href="https://scholar.google.com/citations?user=UEB_5QEAAAAJ&hl=en&oi=sra">Bin Liu</a></h4>
                         <p class="text-muted"> CASIA </p>
                     </div>
                 </div>
-
                 
-
-                <div class="col-sm-2">
+				
+				<div class="col-sm-2">
                     &nbsp;
                 </div>
-
-                <div class="col-sm-2">
+				
+				<div class="col-sm-2">
                     <div class="team-member">
                         <img src="./img/liurui.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
                         <h4><a href="https://ttslr.github.io/people.html">Rui Liu</a></h4>
                         <p class="text-muted"> Inner Mongolia University </p>
                     </div>
-                  </div>
-
-                <div class="col-sm-2">
+                </div>
+				
+				
+				
+				<div class="col-sm-2">
                     &nbsp;
                 </div>
-
+				
                 <div class="col-sm-2">
                     <div class="team-member">
                         <img src="./img/xukele.png" class="img-responsive img-circle" alt="" width="200" height="300">
@@ -578,7 +610,7 @@
                     <h2 class="section-heading">Program Committee</h2>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <ul class="large" style="margin-left:100px;">
@@ -593,13 +625,143 @@
                         <li>Jingming Zhao (Renmin University of China)</li>
                         <li>Yongwei Li (Institute of Automation, Chinese Academy of Sciences)</li>
                     </ul>
-
-
-
-
                 </div>
                 <div class="col"></div>
+            </div> -->
+			
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="./img/xiaobaili2.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
+                        <h4><a href="https://scholar.google.com/citations?user=JTFfexYAAAAJ&hl=en&oi=ao">Xiaobai Li</a></h4>
+                        <p class="text-muted">Zhejiang University</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-1">
+                    &nbsp;
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="./img/zixingzhang.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
+                        <h4><a href="https://scholar.google.com/citations?user=S998M7cAAAAJ&hl=en&oi=ao">Zixing Zhang</a></h4>
+                        <p class="text-muted"> Hunan University </p>
+                    </div>
+                </div>
+
+                <div class="col-sm-1">
+                    &nbsp;
+                </div>
+
+				<div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="./img/jianfeiyu.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
+                        <h4><a href="https://sites.google.com/site/jfyu1990/">Jianfei Yu</a></h4>
+                        <p class="text-muted"> Nanjing University of Science and Technology </p>
+                    </div>
+                </div>
+
+                <div class="col-sm-1">
+                    &nbsp;
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="./img/liya.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
+                        <h4><a href="https://scholar.google.com/citations?user=ISK42qAAAAAJ&hl=en&oi=ao">Ya Li</a></h4>
+                        <p class="text-muted"> Beijing University of Posts and Telecommunications </p>
+                    </div>
+                </div>
+
+
             </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="./img/mengyuewy.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
+                        <h4><a href="https://scholar.google.com/citations?user=9cvRM5wAAAAJ&hl=en&oi=ao">Mengyue Wu</a></h4>
+                        <p class="text-muted"> Shanghai Jiao Tong University </p>
+                    </div>
+                </div>
+                
+                <div class="col-sm-1">
+                    &nbsp;
+                </div>
+                
+                <div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="./img/hanjin.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
+                        <h4><a href="https://sites.google.com/view/jinghan">Jing Han</a></h4>
+                        <p class="text-muted">University of Cambridge</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-1">
+                    &nbsp;
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="./img/jinming.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
+                        <h4><a href="https://scholar.google.com/citations?user=XskCnD8AAAAJ&hl=en&oi=ao">Jinming Zhao</a></h4>
+                        <p class="text-muted"> Renmin University of China </p>
+                    </div>
+                </div>
+                
+                <div class="col-sm-1">
+                    &nbsp;
+                </div>
+                
+                <div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="./img/mingyue.gif" class="img-responsive img-circle" alt="" width="200" height="300">
+                        <h4><a href="https://scholar.google.com/citations?user=lrr05v8AAAAJ&hl=en&oi=ao">Mingyue Niu</a></h4>
+                        <p class="text-muted"> Yanshan University </p>
+                    </div>
+                </div>
+                    
+            </div>
+
+            
+            <div class="row">
+                
+                <div class="col-sm-2">
+                    &nbsp;
+                </div>
+                
+                <div class="col-sm-1">
+                    &nbsp;
+                </div>
+                
+                <div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="./img/yongwei.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
+                        <h4><a href="xxx">Yongwei Li</a></h4>
+                        <p class="text-muted">Institute of Automation, Chinese Academy of Sciences</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-1">
+                    &nbsp;
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="./img/lica.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
+                        <h4><a href="https://sunlicai.github.io/">Licai Sun</a></h4>
+                        <p class="text-muted"> University of Chinese Academy of Sciences </p>
+                    </div>
+                </div>
+                    
+            </div>
+
+
+            
+
+          </div>
+        </div>
 
     </section>
 
