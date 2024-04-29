@@ -204,7 +204,7 @@
                     existing datasets typically limit the label space to a few discrete labels, employ multiple annotators, and use majority voting to select the most likely label. 
                     However, this process may cause some correct but non-candidate or non-majority labels to be ignored, resulting in inaccurate annotations. 
                     To this end, we introduce a new track on open-vocabulary emotion recognition. 
-                    We encourage participants to generate any number of labels in any category, trying to describe the emotional state accurately.
+                    We encourage participants to generate any number of labels in any category, trying to describe the emotional state accurately [4].
                 </p>
 
                 <br>
@@ -218,21 +218,16 @@
                     we choose two widely used metrics in emotion recognition: accuracy and weighted average F-score (WAF). 
                     Considering the inherent class imbalance, we choose WAF as the final ranking.
                     For MER-OV, we draw on our previous work [4], in which we extend traditional classification metrics (i.e., accuracy and recall) and define set-level accuracy and recall.
-                    More details can be found in our baseline paper.
+                    More details can be found in our baseline paper [5].
     
                 </p>
                 
                 <br>
                 <p class="large text-muted">
-                    <b>Dataset.</b> Please download the <a href="merchallenge.contact@gmail.com">End User License Agreement</a>, 
+                    <b>Dataset.</b> Please download the <a href="https://drive.google.com/file/d/1cXNfKHyJzVXg_7kWSf_nVKtsxIZVa517/view?usp=sharing">End User License Agreement</a>, 
                     fill it out and send it to <a href="merchallenge.contact@gmail.com">merchallenge.contact@gmail.com</a> to access the data. 
                     We will review your application and get in touch as soon as possible. 
                     EULA requires participants to use this dataset only for academic research and not to edit or upload samples to the Internet. 
-                    Permission is granted to use the data given that you agree:
-                    (1) That you include a reference to the MER24 Dataset in any work that makes use of the dataset.
-                    (2) That you do not distribute this dataset or modified versions.
-                    (3) That you may not use the dataset or any derivative work for commercial purposes as, for example, licensing or selling the data, or using the data with a purpose to procure a commercial gain.
-                    (4) That all rights not expressly granted to you are reserved by MER24 organizers.
                     
                 </p>
                 
@@ -241,7 +236,7 @@
                     <b>Result submission.</b> For MER-SEMI and MER-NOISE, each team should submit the most likely discrete label among the 6 candidate labels 
                     (i.e., <i> worried, happy, neutral, angry, surprise, and sad </i>). 
                     For MER-OV, each team can submit any number of labels in any category. 
-                    For all tracks, participants should predict results for all 115,595 unlabeled data, although we only evaluate a small subset. 
+                    <b>For all tracks, participants should predict results for all 115,595 unlabeled data</b>, although we only evaluate a small subset. 
                     To focus on generalization performance rather than optimizing for a specific subset, 
                     we do not provide information about which samples belong to the test subset.
                 </p>
@@ -261,16 +256,15 @@
 
                 <br>
                 <p class="large text-muted">
-                    <b>Baseline paper:</b>  Coming soon
+                    <b>Baseline paper:</b> <a href="https://arxiv.org/abs/2404.17113"> https://arxiv.org/abs/2404.17113 </a>
                     <br>
-                    <b>Baseline code:</b> Coming soon
+                    <b>Baseline code:</b> <a href="https://github.com/zeroQiaoba/MERTools/tree/master/MER2024">https://github.com/zeroQiaoba/MERTools/tree/master/MER2024 </a>
                     <br>
-                    <b>Contact email:</b>  merchallenge.contact@gmail.com
+                    <b>Contact email:</b> <a href="merchallenge.contact@gmail.com">merchallenge.contact@gmail.com</a>
                 </p>
 
                 <br>
 
-                
                 <br>
                 <p class="text-muted"> 
 					[1] Zheng Lian, Licai Sun, Yong Ren, Hao
@@ -296,6 +290,11 @@
                     [4] Zheng Lian, Licai Sun, Haiyang Sun, Hao Gu, Zhuofan Wen, Siyuan Zhang, Shun Chen, Mingyu Xu, Ke Xu, Lan Chen, Jiangyan Yi, Bin Liu, and Jianhua Tao. 
                     <a href="https://arxiv.org/abs/2306.15401">Explainable Multimodal Emotion Reasoning.</a>
                     arXiv preprint arXiv:2306.15401, 2023.
+
+                    <br>
+                    [5] Zheng Lian, Haiyang Sun, Licai Sun, Zhuofan Wen, Siyuan Zhang, Shun Chen, Hao Gu, Jinming Zhao, Ziyang Ma, Xie Chen, Jiangyan Yi, Rui Liu, Kele Xu, Bin Liu, Erik Cambria, Guoying Zhao, Björn W. Schuller, and Jianhua Tao. 
+                    <a href="https://arxiv.org/abs/2404.17113">MER 2024: Semi-Supervised Learning, Noise Robustness, and Open-Vocabulary Multimodal Emotion Recognition.</a>
+                    arXiv preprint arXiv:2404.17113, 2024.
                 </p>
             </div>
         </div>
@@ -563,7 +562,7 @@
 				<div class="col-sm-2">
                     <div class="team-member">
                         <img src="./img/liubin.jpg" class="img-responsive img-circle" alt="" width="200" height="300">
-                        <h4><a href="https://scholar.google.com/citations?user=UEB_5QEAAAAJ&hl=en&oi=sra">Bin Liu</a></h4>
+                        <h4><a href="https://people.ucas.edu.cn/~bin.liu">Bin Liu</a></h4>
                         <p class="text-muted"> CASIA </p>
                     </div>
                 </div>
