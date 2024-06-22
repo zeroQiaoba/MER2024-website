@@ -87,9 +87,6 @@
                     <li>
                         <a class="page-scroll" href="#program_committee">Program Committee</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#con">Contact</a>
-                    </li>
 
                    
                 </ul>
@@ -163,11 +160,7 @@
                 <span> April 30, 2024: </span><b>We establish an initial website for MER24@IJCAI and MRAC24@ACM MM</b>
                 </p>
             </div>
-            <div class="col-md-12">
-                <p class="large text-muted">
-                <span> May 7, 2024: </span><b>We creata a WeChat group to facilitate communication </b>
-                </p>
-            </div>
+            
             <div class="col-md-12">
                 <p class="large text-muted">
                 <span> May 7, 2024: </span><b>For MER-OV, we require that participants cannot use closed-source models (such as GPT or Claude). </b>
@@ -180,17 +173,7 @@
             </div>
             <div class="col-md-12">
                 <p class="large text-muted">
-                <span> May 26, 2024: </span><b>We update the paper submission link. </b>
-                </p>
-            </div>
-            <div class="col-md-12">
-                <p class="large text-muted">
-                <span> May 26, 2024: </span><b>For MER-OV, we provide the evaluation code. See our <a href="https://github.com/zeroQiaoba/MERTools/tree/master/MER2024">baseline code </a> for more details.</b>
-                </p>
-            </div>
-            <div class="col-md-12">
-                <p class="large text-muted">
-                <span> May 26, 2024: </span><b>For MER-OV, we update <a href="https://arxiv.org/abs/2404.17113"> baseline paper </a> and <a href="https://arxiv.org/pdf/2306.15401"> EMER</a>.</b>
+                <span> May 26, 2024: </span><b>For MER-OV, we update the <a href="https://github.com/zeroQiaoba/MERTools/tree/master/MER2024">evaluation code </a>, <a href="https://arxiv.org/abs/2404.17113"> baseline paper </a> and <a href="https://arxiv.org/pdf/2306.15401"> EMER</a>.</b>
                 </p>
             </div>
             <div class="col-md-12">
@@ -201,6 +184,11 @@
             <div class="col-md-12">
                 <p class="large text-muted">
                 <span> June 18, 2024: </span><b>For MER-OV, final-openset-*.csv in the provided dataset is the labels extracted from EMER descriptions. <a href="https://github.com/zeroQiaoba/MERTools/blob/master/MER2024/ov_store/check-openset.csv"> check-openset.csv </a> in github is the final checked ground truths. </b>
+                </p>
+            </div>
+            <div class="col-md-12">
+                <p class="large text-muted">
+                <span> June 21, 2024: </span><b>We provide CodaLab links for three tracks. To reduce the difficulty, we limit the evaluation scope to <a href="https://drive.google.com/file/d/14agT9WeyFtzBtym-WAXbda1qq1PD6KDI/view?usp=sharing"> 20,000 samples </a> and provide pre-extracted audio and subtitles for unlabeled data in <a href="https://terabox.com/s/1t_MUZTttRuN7ZKhxx_44Ww"> [link]. </a> We silghtly advance the competition to June 26 and limit the maximum number of submissions per day to 20 times. </b>
                 </p>
             </div>
         </div>
@@ -262,7 +250,7 @@
                     we choose two widely used metrics in emotion recognition: accuracy and weighted average F-score (WAF). 
                     Considering the inherent class imbalance, we choose WAF as the final ranking.
                     For MER-OV, we draw on our previous work [4], in which we extend traditional classification metrics (i.e., accuracy and recall) and define set-level accuracy and recall.
-                    More details can be found in our baseline paper [5]. <b>Evlauation code of MER-OV will be released on our baseline code.</b>
+                    More details can be found in our baseline code. 
     
                 </p>
                 
@@ -280,16 +268,25 @@
                     <b>Result submission.</b> For MER-SEMI and MER-NOISE, each team should submit the most likely discrete label among the 6 candidate labels 
                     (i.e., <i> worried, happy, neutral, angry, surprise, and sad </i>). 
                     For MER-OV, each team can submit any number of labels in any category. 
-                    <b>For three tracks, participants should predict results for all 115,595 unlabeled data</b>, although we only evaluate a small subset. 
+                    <b>For three tracks, participants should predict results of <a href="https://drive.google.com/file/d/14agT9WeyFtzBtym-WAXbda1qq1PD6KDI/view?usp=sharing"> 20,000 samples </a> from 115,595 unlabeled data</b>, although we only evaluate a small subset. 
                     To focus on generalization performance rather than optimizing for a specific subset, 
                     we do not provide information about which samples belong to the test subset.
                     <b>For MER-OV, participants can  only use open-source LLMs, MLLMs, or other models. Closed source models (such as GPT Series or Claude Series models) are not allowed.</b>
                 </p>
-
-                <p style="color: rgb(135,206,235)">Sumbission link for Track 1: Coming soon</p>
-                <p style="color: rgb(135,206,235)">Sumbission link for Track 2: Coming soon</p>
-                <p style="color: rgb(135,206,235)">Sumbission link for Track 3: Coming soon</p>
                 
+                <p style="color: rgb(135,206,235)">CodaLab link for MER2024-SEMI:  <a href="https://codalab.lisn.upsaclay.fr/competitions/19437"> https://codalab.lisn.upsaclay.fr/competitions/19437  </a> </p>
+                <p style="color: rgb(135,206,235)">CodaLab link for MER2024-NOISE: <a href="https://codalab.lisn.upsaclay.fr/competitions/19438"> https://codalab.lisn.upsaclay.fr/competitions/19438  </a> </p>
+                <p style="color: rgb(135,206,235)">CodaLab link for MER2024-OV:    <a href="https://codalab.lisn.upsaclay.fr/competitions/19439"> https://codalab.lisn.upsaclay.fr/competitions/19439  </a> </p>
+                
+                <p class="large text-muted">
+                    <b> Note: </b> please register on Codalab using the email provided on the EULA or the email where you sent the EULA. 
+                    The rankings of MER2024-SEMI and MER2024-NOISE are based on the CodaLab leaderboard. 
+                    But for MER2024-OV, CodaLab is only used for format check. 
+                    Each team can submit five times to the official email, the best performance among them used for final ranking​​.
+                    Due to slightly randomness of GPT-3.5, we will run the evaluation code five times and report the average score. 
+                    The ranking of MER2024-OV track will be announced a few weeks after the competition ends.
+                </p>
+
                 <br>
                 <p class="large text-muted">
                     <b>Paper submission.</b> All participants are encouraged to submit a paper describing their solution to the MRAC24 Workshop@ACM Multimedia.
@@ -441,7 +438,7 @@
                     </p>
                     
                     <p class="large text-muted">
-                        <span> June 30, 2024:</span> <b>Results submission start</b> 
+                        <span> June 26, 2024:</span> <b>Results submission start</b> 
                     </p>
 
                     <p class="large text-muted">
@@ -799,50 +796,6 @@
 
     </section>
 
-
-
-    <!-- Contact Section -->
-    <section id="con">
-
-        <div class="row">
-            <div class="col-lg-12 text-center" style="padding-bottom: 20px;">
-                <h2 class="section-heading">Contact</h2>
-            </div>
-        </div>
-
-        <div class="container">
-            <p class="large text-muted">
-                To facilitate communication, we have created a WeChat group. The first group has reached its maximum number of people. 
-                Therefore, we create another group and the messages of both groups will be synchronized.
-                For all notifications, we will also email all participants who signed up for the challenge. Meanwhile, we will put the news on our official website.
-            </p>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-1">
-                    &nbsp;
-                </div>
-
-
-                <div class="col-sm-2">
-                    &nbsp;
-                </div>
-                
-                <div class="col-sm-1">
-                    &nbsp;
-                </div>
-                
-                
-                <img src="./img/wechat.jpg" class="img-responsive img-circle" alt="" width="400" height="300">
-                    
-                
-              </div>
-
-          </div>
-
-        </div>
-    </section>
 
 
     <!-- jQuery -->
